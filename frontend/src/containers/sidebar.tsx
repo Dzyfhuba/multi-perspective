@@ -28,11 +28,11 @@ const Sidebar = () => {
 
   return (
     <>
-      <Button square onClick={handleSidebar}>
+      <Button square onClick={handleSidebar} className={styles.hide}>
         <BiMenuAltLeft size={24} />
       </Button>
 
-      <aside className={styles.container}>
+      <aside className={`${styles.container} ${styles.hide}`}>
         <div className={styles.overlay + (state ? ' ' + styles.containerOpen : '')} onClick={handleSidebar}></div>
         <div className={styles.content + (sidebarState.open ? ' ' + styles.open : '')}>
           <Button square onClick={handleSidebar} className={styles.close}>

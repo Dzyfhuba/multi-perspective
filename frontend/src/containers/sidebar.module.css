@@ -60,3 +60,9 @@
   /* filter: drop-shadow(50%); */
   background-color: #bfbfbf;
 }
+
+@media only screen and (min-width: 640px) {
+  .hide {
+    display: none;
+  }
+}

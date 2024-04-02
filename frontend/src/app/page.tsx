@@ -1,6 +1,6 @@
-import Introduction from '@/containers/introduction';
-import Story from '@/containers/story';
-import Welcome from "@/containers/welcome";
+import Introduction from '@/containers/introduction'
+import Story from '@/containers/story'
+import Welcome from '@/containers/welcome'
 
 export default function Home() {
   return (
@@ -9,5 +9,5 @@ export default function Home() {
       <Introduction />
       <Story />
     </div>
-  );
+  )
 }

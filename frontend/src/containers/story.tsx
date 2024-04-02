@@ -1,6 +1,6 @@
-import styles from './story.module.css'
 import ImageStory from '@/images/story.png'
-import Image from "next/image"
+import Image from 'next/image'
+import styles from './story.module.css'
 
 const Story = () => {
   const title = 'Cerita Kerabat AGROS'
@@ -9,7 +9,10 @@ const Story = () => {
     <section id="story">
       <h1>{title}</h1>
       <div className={styles.content}>
-        <Image src={ImageStory} alt={title} className={styles.image} />
+        <Image src={ImageStory}
+          alt={title}
+          className={styles.image} 
+        />
         <p className={styles.description}>{description}</p>
       </div>
     </section>

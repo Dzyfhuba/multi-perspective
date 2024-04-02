@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.input {
+  border: solid 1px gray;
+  border-radius: 7px;
+  height: 44px;
+  padding: 4px 8px;
+}
+
+.input:focus {
+  outline: solid 2px #459467;
+}

@@ -1,9 +1,15 @@
+'use client'
+
+import Button from '@/components/button'
+import WelcomeImage from '@/images/welcome.png'
 import Image from 'next/image'
 import styles from './welcome.module.css'
-import WelcomeImage from '@/images/welcome.png'
-import Button from '@/components/button'
+import { useContext } from 'react'
+import { ProfileSectionContext } from '@/store/ProfileSectionContext '
 
 const Welcome = () => {
+  const section = useContext(ProfileSectionContext)
+
   const title = 'Selamat datang, Kerabat!'
   const description = `Kami hadir dengan membawakan solusi terbaik untuk kebutuhan logistik Anda.
   Melayani dengan sepenuh hati untuk kenyamanan Anda dan keamanan barang sampai pada tujuan.
@@ -13,10 +19,10 @@ const Welcome = () => {
       <h1>{title}</h1>
       <p>{description}</p>
       <div className='flex gap-3'>
-        <Button outline small href='/login'>
+        <Button outline small href='/profile?section=login' onClick={() => section.setSection('login')}>
           MASUK
         </Button>
-        <Button flip small href='/register'>
+        <Button flip small href='/profile?section=register' onClick={() => section.setSection('register')}>
           DAFTAR
         </Button>
       </div>

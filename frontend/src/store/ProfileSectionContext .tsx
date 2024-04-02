@@ -2,14 +2,14 @@
 
 import { HTMLAttributes, createContext, useState } from 'react'
 
-type Section = 'register' | 'login' | 'edit'
+export type Section = 'register' | 'login' | 'edit'
 
 type Context = {
   section: Section
   setSection: (section: Section) => void
 }
 
-const initalState: Section = localStorage.getItem('profile-section') as Section || 'register'
+const initalState: Section = localStorage.getItem('profile-section') as Section
 
 export const ProfileSectionContext = createContext<Context>({
   section: initalState,

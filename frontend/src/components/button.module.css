@@ -1,0 +1,20 @@
+.container {
+  background-color: var(--color-base-1);
+  border: none;
+  height: 44px;
+  padding: 8px 4px;
+}
+
+.container:hover {
+  cursor: pointer;
+  filter: opacity(50%);
+}
+
+.container:active {
+  transform: scale(90%);
+}
+
+.square {
+  aspect-ratio: 1/1;
+  padding: 0;
+}

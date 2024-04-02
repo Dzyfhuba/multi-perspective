@@ -1,0 +1,12 @@
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+:root {
+  --color-primary: #459467;
+  --color-base-1: #F8F8F8;
+  --color-base-1-dark: #OAOAOA;
+}

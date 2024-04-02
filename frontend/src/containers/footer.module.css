@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.container * {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  align-items: center;
+  height: 36px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.background {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

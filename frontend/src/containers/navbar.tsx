@@ -1,13 +1,9 @@
-import Button from '@/components/button'
 import ImageBrand from '@/images/brand.svg'
+import SidebarOpenProvider from '@/store/SidebarOpenContext'
 import Image from 'next/image'
 import Link from 'next/link'
-import { BiMenuAltLeft } from 'react-icons/bi'
 import styles from './navbar.module.css'
-import { ReducerAction, useContext, useReducer } from 'react'
 import Sidebar from './sidebar'
-import Client from '@/components/client'
-import SidebarOpenProvider from '@/store/SidebarOpenContext'
 
 const Navbar = () => {
 

@@ -12,3 +12,11 @@ body {
 
   --screen-sm: 640px;
 }
+
+.flex {
+  display: flex;
+}
+
+.gap-3 {
+  gap: 8px;
+}

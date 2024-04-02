@@ -2,7 +2,10 @@
   background-color: var(--color-base-1);
   border: none;
   height: 44px;
-  padding: 8px 4px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  transition: all 200ms linear;
+  text-decoration: none;
 }
 
 .container:hover {
@@ -21,4 +24,21 @@
 
 .primary {
   background-color: var(--color-primary);
+  color: white;
+}
+
+.small {
+  font-size: smaller;
+  height: auto;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px white solid;
+  color: white;
+}
+
+.flip {
+  background-color: var(--color-base-1);
+  color: var(--color-primary);
 }

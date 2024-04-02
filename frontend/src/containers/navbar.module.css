@@ -1,5 +1,5 @@
 .container {
-  padding: 0px 16px;
+  padding: 0px 8px;
 }
 
 .topbar {
@@ -28,6 +28,10 @@
 }
 
 @media only screen and (min-width: 640px) {
+  .container {
+    padding: 0px 16px;
+  }
+
   .topbar {
     justify-content: space-between;
   }

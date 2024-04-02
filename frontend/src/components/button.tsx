@@ -1,12 +1,17 @@
+import Link from 'next/link'
 import styles from './button.module.css'
-import { ButtonHTMLAttributes } from "react"
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & AnchorHTMLAttributes<HTMLAnchorElement> & {
   square?: boolean
   primary?: boolean
+  small?: boolean
+  outline?: boolean
+  flip?: boolean
+  href?: string
 }
 
-const Button = ({ children, className, square, primary, ...props }: Props) => {
+const Button = ({ children, href, className, square, primary, small, outline, flip, ...props }: Props) => {
 
   const container = [
     {
@@ -18,10 +23,30 @@ const Button = ({ children, className, square, primary, ...props }: Props) => {
       className: styles.primary
     },
     {
+      prop: small,
+      className: styles.small
+    },
+    {
+      prop: outline,
+      className: styles.outline
+    },
+    {
+      prop: flip,
+      className: styles.flip
+    },
+    {
       prop: className,
       className: className
     },
   ].filter(e => e.prop).map(e => ` ${e.className}`).join('')
+
+  if (href) {
+    return (
+      <Link {...props} className={`${styles.container}${container}`} href={href}>
+        {children}
+      </Link>
+    )
+  }
 
   return (
     <button {...props} className={`${styles.container}${container}`}>

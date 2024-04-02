@@ -10,6 +10,7 @@ import Link from "next/link"
 const Sidebar = () => {
   const sidebarState = useContext(SidebarOpenContext)
   const [state, setState] = useState(sidebarState.open)
+  const [activeUrl, setActiveUrl] = useState('')
 
   const handleSidebar = () => {
     sidebarState.setOpen(!sidebarState.open)
@@ -18,13 +19,11 @@ const Sidebar = () => {
     }, state ? 300 : 0);
   }
 
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+
   useEffect(() => {
-    document.querySelectorAll("a[href]").forEach(e => {
-      e.addEventListener('click', ()  => {
-        handleSidebar()
-      })
-    })
-  }, [])
+    setActiveUrl(window.location.pathname)
+  }, [pathname])
 
   return (
     <>
@@ -39,9 +38,9 @@ const Sidebar = () => {
             <MdClose size={24} />
           </Button>
 
-          <Link className={styles.item} href={'/'}>Beranda</Link>
-          <Link className={styles.item} href={'/about'}>Tentang</Link>
-          <Link className={styles.item} href={'/profile'}>Profil</Link>
+          <Link onClick={handleSidebar} className={styles.item + (activeUrl === '/' ? ` ${styles.active}` : '')} href={'/'}>Beranda</Link>
+          <Link onClick={handleSidebar} className={styles.item + (activeUrl === '/about' ? ` ${styles.active}` : '')} href={'/about'}>Tentang</Link>
+          <Link onClick={handleSidebar} className={styles.item + (activeUrl === '/profile' ? ` ${styles.active}` : '')} href={'/profile'}>Profil</Link>
         </div>
       </aside>
     </>

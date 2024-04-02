@@ -38,8 +38,10 @@ const Introduction = () => {
           {services.map((item, idx) => (
             <div key={idx} className={styles.card}>
               <Image src={item.image} alt={item.title} className={styles.image} />
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <div className='p-3'>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
             </div>
           ))}
         </div>

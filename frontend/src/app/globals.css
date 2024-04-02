@@ -21,3 +21,7 @@ body {
 .gap-3 {
   gap: 8px;
 }
+
+.p-3 {
+  padding: 8px;
+}

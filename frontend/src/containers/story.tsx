@@ -8,7 +8,7 @@ const Story = () => {
   return (
     <section id="story">
       <h1>{title}</h1>
-      <div className='flex'>
+      <div className={styles.content}>
         <Image src={ImageStory} alt={title} className={styles.image} />
         <p className={styles.description}>{description}</p>
       </div>

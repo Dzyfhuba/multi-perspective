@@ -11,12 +11,21 @@
 }
 
 .content {
+  padding: 32px 0;
   align-items: center;
-  height: 36px;
+  /* height: 36px; */
   display: flex;
+  gap: 8px;
   justify-content: space-between;
   max-width: 1080px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content img {
+  height: auto;
+  width: 50%;
 }
 
 .background {
@@ -31,6 +40,20 @@
 
 .copyright {
   display: flex;
+  white-space: nowrap;
+  font-size: 10px;
   align-items: center;
   gap: 8px;
+}
+
+@media only screen and (min-width: 900px) {
+  .content {
+    padding: 12px 32px;
+    flex-direction: row;
+  }
+
+  .content img {
+    width: auto;
+    height: auto;
+  }
 }

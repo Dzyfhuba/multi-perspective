@@ -1,7 +1,14 @@
 .description {
   align-self: center;
+  text-align: center;
 }
 
 .image {
-  width: 384px;
+  width: 100%;
+  max-width: 384px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
 }

@@ -25,3 +25,7 @@ body {
 .p-3 {
   padding: 8px;
 }
+
+main {
+  min-height: 120vh;
+}

@@ -1,11 +1,10 @@
 import Introduction from '@/containers/introduction';
-import styles from './page.module.css'
-import Welcome from "@/containers/welcome";
 import Story from '@/containers/story';
+import Welcome from "@/containers/welcome";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Welcome />
       <Introduction />
       <Story />

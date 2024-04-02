@@ -10,9 +10,7 @@
   },
   "extends": [
     "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "eslint:recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,8 +18,15 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint",
     "react"
+  ],
+  "overrides": [
+    {
+      "files": ["src/**/*.d.ts"],
+      "rules": {
+        "no-unused-vars":"off"
+      }
+    }
   ],
   "rules": {
     "camelcase": [
@@ -43,14 +48,6 @@
     "indent": [
       "warn",
       2
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
-      }
     ],
     "object-curly-spacing": [
       "warn",

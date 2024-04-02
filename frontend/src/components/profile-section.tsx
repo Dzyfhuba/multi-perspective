@@ -5,14 +5,14 @@ import { ProfileSectionContext, Section } from '@/store/ProfileSectionContext '
 import { useContext, useEffect } from 'react'
 
 function getQueryParam(key: string): string | null {
-  const url = window.location.href;
-  const queryStringStartIndex = url.indexOf('?');
+  const url = window.location.href
+  const queryStringStartIndex = url.indexOf('?')
   if (queryStringStartIndex !== -1) {
-    const queryString = url.slice(queryStringStartIndex + 1);
-    const params = new URLSearchParams(queryString);
-    return params.get(key);
+    const queryString = url.slice(queryStringStartIndex + 1)
+    const params = new URLSearchParams(queryString)
+    return params.get(key)
   }
-  return null; // If no query string found
+  return null // If no query string found
 }
 
 const ProfileSection = () => {
@@ -20,7 +20,7 @@ const ProfileSection = () => {
 
   useEffect(() => {
     section.setSection(getQueryParam('section') as Section || 'register')
-  }, [])
+  }, [section])
 
   return (
     <>

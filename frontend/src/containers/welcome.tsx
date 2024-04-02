@@ -15,14 +15,24 @@ const Welcome = () => {
   Melayani dengan sepenuh hati untuk kenyamanan Anda dan keamanan barang sampai pada tujuan.
   Silahkan melakukan pendaftaran untuk dapat menikmati layanan kami.`
   return (
-    <section id="welcome" className={styles.container}>
+    <section id="welcome"
+      className={styles.container}
+    >
       <h1>{title}</h1>
       <p>{description}</p>
       <div className='flex gap-3'>
-        <Button outline small href='/profile?section=login' onClick={() => section.setSection('login')}>
+        <Button outline
+          small
+          href='/profile?section=login'
+          onClick={() => section.setSection('login')}
+        >
           MASUK
         </Button>
-        <Button flip small href='/profile?section=register' onClick={() => section.setSection('register')}>
+        <Button flip
+          small
+          href='/profile?section=register'
+          onClick={() => section.setSection('register')}
+        >
           DAFTAR
         </Button>
       </div>

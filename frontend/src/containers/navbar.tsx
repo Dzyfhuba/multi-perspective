@@ -6,12 +6,6 @@ import styles from './navbar.module.css'
 import Sidebar from './sidebar'
 
 const Navbar = () => {
-
-
-  const handleSidebar = () => {
-
-  }
-
   return (
     <nav className={styles.container}>
       <div className={styles.topbar}>
@@ -20,7 +14,10 @@ const Navbar = () => {
         </SidebarOpenProvider>
 
         <Link href={'/'}>
-          <Image src={ImageBrand} alt={process.env.NEXT_PUBLIC_APP_NAME} priority />
+          <Image src={ImageBrand}
+            alt={process.env.NEXT_PUBLIC_APP_NAME}
+            priority 
+          />
         </Link>
 
         <div className={styles.menu}>

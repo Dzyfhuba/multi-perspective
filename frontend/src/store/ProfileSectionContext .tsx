@@ -6,10 +6,11 @@ export type Section = 'register' | 'login' | 'edit'
 
 type Context = {
   section: Section
+  // eslint-disable-next-line no-unused-vars
   setSection: (section: Section) => void
 }
 
-const initalState: Section = localStorage.getItem('profile-section') as Section
+const initalState: Section = typeof window !== 'undefined' ? localStorage.getItem('profile-section') as Section : 'register'
 
 export const ProfileSectionContext = createContext<Context>({
   section: initalState,

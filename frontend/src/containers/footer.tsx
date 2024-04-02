@@ -9,13 +9,18 @@ const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.content}>
-        <Image src={ImageBrand} alt={process.env.NEXT_PUBLIC_APP_NAME} />
+        <Image src={ImageBrand}
+          alt={process.env.NEXT_PUBLIC_APP_NAME} 
+        />
         <span className={styles.copyright}>{process.env.NEXT_PUBLIC_COMPANY_NAME} <FaRegCopyright /> 2024. All rights reserved.</span>
         <Link href={'/terms-and-conditions'}>SYARAT & KETENTUAN</Link>
         <Link href={'/privacy-policy'}>KEBIJAKAN PRIVASI</Link>
       </div>
 
-      <Image src={ImageBackground} alt={process.env.NEXT_PUBLIC_APP_NAME} className={styles.background} />
+      <Image src={ImageBackground}
+        alt={process.env.NEXT_PUBLIC_APP_NAME}
+        className={styles.background} 
+      />
     </footer>
   )
 }

@@ -44,8 +44,8 @@ const Register = () => {
             placeholder="Pilih Role: Customer / Super Admin"
             required
           >
-            <option value="1">Customer</option>
-            <option value="2">Super Admmin</option>
+            <option value="customer">Customer</option>
+            <option value="superadmin">Super Admmin</option>
           </Select>
           <Button primary
             small

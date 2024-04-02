@@ -1,4 +1,4 @@
-import {getPreferredTheme} from '@/helpers/mode'
+import { getPreferredTheme } from '@/helpers/mode'
 
 const theme = {
   colors: {

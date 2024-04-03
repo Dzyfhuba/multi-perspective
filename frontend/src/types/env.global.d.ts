@@ -6,6 +6,8 @@ declare global {
 
       COMPANY_NAME: string
       NEXT_PUBLIC_COMPANY_NAME: string
+
+      NEXT_PUBLIC_API_URL: string
     }
   }
 }

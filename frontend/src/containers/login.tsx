@@ -1,12 +1,9 @@
-import Input from '@/components/input'
-import styles from './register.module.css'
 import Button from '@/components/button'
-import { useContext } from 'react'
-import { ProfileSectionContext } from '@/store/ProfileSectionContext '
+import Input from '@/components/input'
+import Link from 'next/link'
+import styles from './register.module.css'
 
 const Login = () => {
-  const section = useContext(ProfileSectionContext)
-
   return (
     <form id="register">
       <h1>Masuk Sekarang</h1>
@@ -32,10 +29,10 @@ const Login = () => {
           >
             Masuk Sekarang
           </Button>
-          <span>{'Belum Memiliki Akun?'} <span role='button'
+          <span>{'Belum Memiliki Akun?'} <Link role='button'
             className={styles.link}
-            onClick={() => section.setSection('register')}
-          >Gabung Sekarang</span></span>
+            href={'/profile?section=register'}
+          >Gabung Sekarang</Link></span>
         </div>
       </div>
     </form>

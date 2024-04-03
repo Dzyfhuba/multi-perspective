@@ -16,6 +16,20 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe())
 
+  app.enableCors({
+    origin: function (origin, callback) {
+      if (
+        (process.env.CORS_ORIGIN.split(',') as string[]).indexOf(origin) !==
+          -1 ||
+        !origin
+      ) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    },
+  })
+
   await app.listen(3333)
 }
 bootstrap()

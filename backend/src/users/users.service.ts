@@ -22,6 +22,14 @@ export class UsersService {
     )
   }
 
+  async all(): Promise<User[]> {
+    return this.prisma.users.findMany()
+  }
+
+  async user(data: Prisma.usersFindUniqueOrThrowArgs): Promise<User> {
+    return this.prisma.users.findUnique(data)
+  }
+
   async create(data: Prisma.usersCreateInput): Promise<User> {
     const salt = await bcrypt.genSalt()
     const password = await bcrypt.hash(data.password, salt)
@@ -31,9 +39,5 @@ export class UsersService {
         password,
       },
     })
-  }
-
-  async user(data: Prisma.usersFindUniqueOrThrowArgs): Promise<User> {
-    return this.prisma.users.findUnique(data)
   }
 }

@@ -5,6 +5,7 @@ import { genSalt, hash } from 'bcrypt'
 import { PrismaService } from 'src/prisma/prisma.service'
 import { User } from 'src/users/users.model'
 import { LoginRequest } from './request/auth.login.request'
+import { extractToken } from 'src/helpers'
 
 @Injectable()
 export class AuthService {
@@ -48,17 +49,14 @@ export class AuthService {
   // }
 
   async isLoggedIn(token: string): Promise<boolean> {
-    const verified = await this.jwtService.verifyAsync(
-      this.extractToken(token),
-      {
+    const verified = await this.jwtService
+      .verifyAsync(extractToken(token), {
         secret: process.env.APP_KEY,
-      },
-    )
+      })
+      .catch((reason) => {
+        console.log(reason)
+      })
 
     return !!verified
-  }
-
-  extractToken(token: string): string {
-    return token.replace('Bearer ', '')
   }
 }

@@ -14,7 +14,7 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
-RUN npm run prisma:push
+# RUN npm run prisma:push
 
 RUN npm run build
 

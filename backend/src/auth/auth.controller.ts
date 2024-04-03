@@ -4,6 +4,7 @@ import {
   Get,
   HttpException,
   Post,
+  Put,
   Req,
   Res,
 } from '@nestjs/common'
@@ -13,6 +14,7 @@ import ResponseCustom from 'src/types/response'
 import { AuthService } from './auth.service'
 import { LoginRequest } from './request/auth.login.request'
 import { RegisterRequest } from './request/auth.register.request'
+import { UserUpdate } from 'src/users/request/user.update.request'
 
 @Controller('auth')
 @ApiTags('authentication')
@@ -72,6 +74,31 @@ export class AuthController {
       message: (await this.authService.isLoggedIn(req.header('Authorization')))
         ? 'You has been logged in'
         : 'You are not logged in',
+    })
+  }
+
+  @Get('/user')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Check your account information?' })
+  async getUser(@Req() req: Request, @Res() res: Response): Promise<Response> {
+    return res.status(200).json({
+      item: await this.authService.getUserByToken(req.header('Authorization')),
+    })
+  }
+
+  @Put('/user')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Update your account information?' })
+  async updatetUser(
+    @Req() req: Request,
+    @Body() body: UserUpdate,
+    @Res() res: Response,
+  ): Promise<Response> {
+    return res.status(201).json({
+      item: await this.authService.updateUserByToken(
+        req.header('Authorization'),
+        body,
+      ),
     })
   }
 }

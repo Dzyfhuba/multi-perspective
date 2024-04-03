@@ -44,18 +44,54 @@ export class AuthService {
     }
   }
 
-  // async logout(token: string): Promise<boolean> {
-  //   const asd = await this.jwtService.
-  // }
+  async getUserByToken(token: string): Promise<User> {
+    const verified = await this.jwtService.verifyAsync(extractToken(token), {
+      secret: process.env.APP_KEY,
+    })
+
+    return this.prisma.users.findUnique({ where: { email: verified.email } })
+  }
+
+  async updateUserByToken(
+    token: string,
+    data: Prisma.usersUpdateInput,
+  ): Promise<User> {
+    const verified = await this.jwtService.verifyAsync(extractToken(token), {
+      secret: process.env.APP_KEY,
+    })
+
+    const user = await this.prisma.users.findUnique({
+      where: { email: verified.email },
+    })
+
+    if (data.email) {
+      const count = await this.prisma.users.count({
+        where: {
+          email: data.email as string,
+          AND: { NOT: { id: user.id } },
+        },
+      })
+      if (count) throw new HttpException('Your email has been registered', 400)
+    }
+
+    if (data.password) {
+      const salt = await genSalt()
+      const password = await hash(data.password as string, salt)
+      data.password = password
+    }
+
+    return this.prisma.users.update({
+      where: { email: verified.email },
+      data: data,
+    })
+  }
 
   async isLoggedIn(token: string): Promise<boolean> {
-    const verified = await this.jwtService
-      .verifyAsync(extractToken(token), {
-        secret: process.env.APP_KEY,
-      })
-      .catch((reason) => {
-        // console.log(reason)
-      })
+    if (!token) return false
+
+    const verified = await this.jwtService.verifyAsync(extractToken(token), {
+      secret: process.env.APP_KEY,
+    })
 
     return !!verified
   }

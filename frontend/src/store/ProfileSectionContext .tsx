@@ -2,7 +2,7 @@
 
 import { HTMLAttributes, createContext, useState } from 'react'
 
-export type Section = 'register' | 'login' | 'edit'
+export type Section = 'register' | 'login' | 'edit' | null
 
 type Context = {
   section: Section
@@ -10,20 +10,19 @@ type Context = {
   setSection: (section: Section) => void
 }
 
-const initalState: Section = typeof window !== 'undefined' ? localStorage.getItem('profile-section') as Section : 'register'
-
 export const ProfileSectionContext = createContext<Context>({
-  section: initalState,
-  setSection: () => {}
+  section: null,
+  setSection: () => { }
 })
 
 const ProfileSectionProvider = (props: HTMLAttributes<HTMLElement>) => {
-  const [section, setSection] = useState<Section>(initalState)
+  const [section, setSection] = useState<Section>(null)
 
-  const handleSection = (section: Section) =>{
+  const handleSection = (section: Section) => {
     setSection(section)
 
-    localStorage.setItem('profile-section', section)
+    if (section) localStorage.setItem('profile-section', section)
+    else localStorage.removeItem('profile-section')
   }
 
   return (

@@ -2,8 +2,8 @@
 import Button from '@/components/button'
 import Input from '@/components/input'
 import Select from '@/components/select'
-import { useAxiosWithoutToken } from '@/hooks/axios'
 import ResponseCustom from '@/types/response'
+import Axios from '@/variables/axios'
 import { AxiosError } from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -23,14 +23,13 @@ type FormData = {
 const Register = () => {
   const [formData, setFormData] = useState<FormData>({})
 
-  const { axios } = useAxiosWithoutToken()
   const ReactSwal = withReactContent(Swal)
   const router = useRouter()
 
   const handleForm = (e: SyntheticEvent) => {
     e.preventDefault()
 
-    axios.post<ResponseCustom>('/auth/register', formData)
+    Axios.post<ResponseCustom>('/auth/register', formData)
       .then((res) => {
         if (res.status === 201) {
           ReactSwal.fire({

@@ -13,8 +13,9 @@ import styles from './welcome.module.css'
 const Welcome = () => {
   const section = useContext(ProfileSectionContext)
   const userContext = useContext(UserContext)
+  console.log(userContext.user)
 
-  const title = `Selamat datang, ${userContext? userContext.user.name : 'Kerabat'}!`
+  const title = `Selamat datang, ${userContext.user? userContext.user.name : 'Kerabat'}!`
   const description = `Kami hadir dengan membawakan solusi terbaik untuk kebutuhan logistik Anda.
   Melayani dengan sepenuh hati untuk kenyamanan Anda dan keamanan barang sampai pada tujuan.
   Silahkan melakukan pendaftaran untuk dapat menikmati layanan kami.`
@@ -35,7 +36,7 @@ const Welcome = () => {
           <h1>{title}</h1>
           <p>{description}</p>
           <div className='flex gap-3'>
-            {userContext ? (
+            {userContext.user ? (
               <Button outline
                 small
                 onClick={() => {

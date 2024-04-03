@@ -7,23 +7,17 @@ import { HTMLAttributes, createContext, useEffect, useState } from 'react'
 type Context = {
   user: User
   // eslint-disable-next-line no-unused-vars
-  setUser: (user: User) => void
   isLoading: boolean
 }
 
 export const UserContext = createContext<Context>({
   user: {},
-  setUser: () => { },
   isLoading: true
 })
 
 const UserProvider = (props: HTMLAttributes<HTMLElement>) => {
   const [user, setUser] = useState<User>({})
   const [isLoading, setLoading] = useState<boolean>(true)
-
-  const handleSection = (user: User) => {
-    localStorage.setItem('user', JSON.stringify(user))
-  }
 
   useEffect(() => {
     (async () => {
@@ -35,7 +29,7 @@ const UserProvider = (props: HTMLAttributes<HTMLElement>) => {
   }, [])
 
   return (
-    <UserContext.Provider value={{ user, setUser: handleSection, isLoading }}>{props.children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, isLoading }}>{props.children}</UserContext.Provider>
   )
 }
 

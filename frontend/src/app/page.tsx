@@ -15,6 +15,7 @@ export default function Home() {
       <UserProvider>
         <Partners />
       </UserProvider>
+      <div style={{ paddingBottom: 36 }}></div>
     </div>
   )
 }

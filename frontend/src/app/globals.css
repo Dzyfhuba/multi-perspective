@@ -35,3 +35,11 @@ main {
   margin: 0px auto;
   padding: 0 16px;
 }
+
+.bold {
+  font-weight: 700;
+}
+
+.swal2-confirm {
+  background-color: var(--color-primary) !important;
+}

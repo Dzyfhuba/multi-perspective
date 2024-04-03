@@ -1,17 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { ArrayUnique, IsEmail, IsEnum, IsNotEmpty } from 'class-validator'
-import { getEmails } from '../users.model'
+import { IsEmail, IsEnum, IsNotEmpty } from 'class-validator'
 
-export class UserCreate {
+export class UserStore {
   @ApiProperty({ example: 'Bambang' })
   @IsNotEmpty()
   name: string
 
   @ApiProperty({ example: 'bambang@gmail.com' })
   @IsEmail()
-  @ArrayUnique(async () => await getEmails(), {
-    message: 'Your email has been registered',
-  })
   email: string
 
   @ApiProperty({ example: 'Pekalongan' })

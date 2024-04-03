@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   async login(data: LoginRequest): Promise<object> {
-    console.log(data)
+    // console.log(data)
     const user = await this.prisma.users.findUnique({
       where: { email: data.email },
     })
@@ -54,7 +54,7 @@ export class AuthService {
         secret: process.env.APP_KEY,
       })
       .catch((reason) => {
-        console.log(reason)
+        // console.log(reason)
       })
 
     return !!verified

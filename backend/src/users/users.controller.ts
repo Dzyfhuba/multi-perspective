@@ -93,7 +93,7 @@ export class UsersController {
     @Param('id') id: string,
     @Res() res: Response,
   ): Promise<Response> {
-    this.usersService.delete({ id: parseInt(id) })
+    await this.usersService.delete({ id: parseInt(id) })
 
     return res.status(200).json({
       message: 'User deleted',

@@ -76,16 +76,16 @@ export class UsersService {
   }
 
   async delete(where: Prisma.usersWhereUniqueInput): Promise<User> {
-    // const count = await this.prisma.users.count({ where })
+    const count = await this.prisma.users.count({ where })
 
     // console.log(count)
-    // if (!count) throw new HttpException('Your email has been registered', 400)
+    if (!count) throw new HttpException('User not founnd', 404)
 
     return this.prisma.users
       .delete({ where })
       .then((value) => excludeProperty(value, 'password'))
       .catch((res) => {
-        console.log(res)
+        // console.log(res)
         return res
       })
   }

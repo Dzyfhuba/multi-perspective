@@ -6,7 +6,6 @@ const getUser = async () => {
       return res.data
     })
     .catch(() => {
-      window.localStorage.removeItem('token')
       return false
     })
 

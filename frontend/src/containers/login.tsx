@@ -1,15 +1,14 @@
 'use client'
 import Button from '@/components/button'
 import Input from '@/components/input'
-import Link from 'next/link'
-import styles from './register.module.css'
-import { SyntheticEvent, useState } from 'react'
-import withReactContent from 'sweetalert2-react-content'
-import Swal from 'sweetalert2'
-import { useRouter } from 'next/navigation'
 import ResponseCustom from '@/types/response'
-import { AxiosError, AxiosResponse } from 'axios'
 import Axios from '@/variables/axios'
+import { AxiosError, AxiosResponse } from 'axios'
+import Link from 'next/link'
+import { SyntheticEvent, useState } from 'react'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import styles from './register.module.css'
 
 type FormData = {
   email?: string
@@ -20,7 +19,6 @@ const Login = () => {
   const [formData, setFormData] = useState<FormData>({})
 
   const ReactSwal = withReactContent(Swal)
-  const router = useRouter()
 
   const handleForm = (e: SyntheticEvent) => {
     e.preventDefault()
@@ -33,8 +31,9 @@ const Login = () => {
             icon: 'success'
           })
             .then(() => {
+              console.log(res.data)
               if (res.data.item) localStorage.setItem('token', res.data.item.token || '')
-              router.push('/')
+              window.location.href = '/'
             })
         }
       })

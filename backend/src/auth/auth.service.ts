@@ -64,15 +64,7 @@ export class AuthService {
       where: { email: verified.email },
     })
 
-    if (data.email) {
-      const count = await this.prisma.users.count({
-        where: {
-          email: data.email as string,
-          AND: { NOT: { id: user.id } },
-        },
-      })
-      if (count) throw new HttpException('Your email has been registered', 400)
-    }
+    delete user.email
 
     if (data.password) {
       const salt = await genSalt()

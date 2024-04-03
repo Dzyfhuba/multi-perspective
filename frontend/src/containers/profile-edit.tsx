@@ -25,6 +25,8 @@ const ProfileEdit = () => {
   const handleForm = (e: SyntheticEvent) => {
     e.preventDefault()
 
+    delete formData.email
+
     Axios.put<ResponseCustom>('/auth/user', formData)
       .then((res: AxiosResponse) => {
         if (res.status === 201) {

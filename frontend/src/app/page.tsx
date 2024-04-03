@@ -1,4 +1,5 @@
 import Introduction from '@/containers/introduction'
+import Partners from '@/containers/partners'
 import Story from '@/containers/story'
 import Welcome from '@/containers/welcome'
 import UserProvider from '@/store/UserContext '
@@ -11,6 +12,9 @@ export default function Home() {
       </UserProvider>
       <Introduction />
       <Story />
+      <UserProvider>
+        <Partners />
+      </UserProvider>
     </div>
   )
 }

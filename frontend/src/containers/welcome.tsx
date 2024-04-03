@@ -1,39 +1,20 @@
 'use client'
 
-import WelcomeImage from '@/images/welcome.png'
-import Image from 'next/image'
-import styles from './welcome.module.css'
-import { useContext, useEffect, useState } from 'react'
-import getUser from '@/variables/get-user'
-import Skeleton from 'react-loading-skeleton'
 import Button from '@/components/button'
+import WelcomeImage from '@/images/welcome.png'
 import { ProfileSectionContext } from '@/store/ProfileSectionContext '
+import { UserContext } from '@/store/UserContext '
+import Image from 'next/image'
+import { useContext } from 'react'
+import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import User from '@/types/user'
+import styles from './welcome.module.css'
 
 const Welcome = () => {
   const section = useContext(ProfileSectionContext)
-  const [user, setUser] = useState<User>()
-  const [isLoading, setLoading] = useState(true)
+  const userContext = useContext(UserContext)
 
-  useEffect(() => {
-    (async () => {
-      const user = await getUser()
-
-      setUser(user.item)
-      setLoading(false)
-    })()
-  }, [])
-
-  // if (isLoading) {
-  //   return <Skeleton height={28}
-  //     width={150}
-  //     baseColor='#459467'
-  //     highlightColor='#51b37b'
-  //   />
-  // }
-
-  const title = `Selamat datang, ${user? user.name : 'Kerabat'}!`
+  const title = `Selamat datang, ${userContext? userContext.user.name : 'Kerabat'}!`
   const description = `Kami hadir dengan membawakan solusi terbaik untuk kebutuhan logistik Anda.
   Melayani dengan sepenuh hati untuk kenyamanan Anda dan keamanan barang sampai pada tujuan.
   Silahkan melakukan pendaftaran untuk dapat menikmati layanan kami.`
@@ -41,7 +22,7 @@ const Welcome = () => {
     <section id="welcome"
       className={styles.container}
     >
-      {isLoading ? (
+      {userContext.isLoading ? (
         <Skeleton height={300}
           baseColor='#459467'
           highlightColor='#51b37b'
@@ -54,7 +35,7 @@ const Welcome = () => {
           <h1>{title}</h1>
           <p>{description}</p>
           <div className='flex gap-3'>
-            {user ? (
+            {userContext ? (
               <Button outline
                 small
                 onClick={() => {

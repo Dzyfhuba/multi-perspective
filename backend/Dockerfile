@@ -14,6 +14,8 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
+RUN prisma db push
+
 RUN npm run build
 
 # Expose the port your NestJS application listens on

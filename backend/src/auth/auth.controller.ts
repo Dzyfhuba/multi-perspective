@@ -2,10 +2,10 @@ import { Body, Controller, Get, Post, Put, Req, Res } from '@nestjs/common'
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger'
 import { Request, Response } from 'express'
 import ResponseCustom from 'src/types/response'
-import { UserUpdate } from 'src/users/request/user.update.request'
 import { AuthService } from './auth.service'
 import { LoginRequest } from './request/auth.login.request'
 import { RegisterRequest } from './request/auth.register.request'
+import { UserUpdate } from 'src/users/request/user.update.request'
 
 @Controller('auth')
 @ApiTags('authentication')

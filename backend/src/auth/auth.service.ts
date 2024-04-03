@@ -2,9 +2,9 @@ import { HttpException, Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { Prisma } from '@prisma/client'
 import { genSalt, hash } from 'bcrypt'
-import { PrismaService } from 'src/prisma/prisma.service'
 import { User } from 'src/users/users.model'
 import { LoginRequest } from './request/auth.login.request'
+import { PrismaService } from 'src/prisma/prisma.service'
 import { extractToken } from 'src/helpers'
 
 @Injectable()

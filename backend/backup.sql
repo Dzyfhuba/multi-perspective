@@ -33,7 +33,7 @@ CREATE TABLE `users` (
   `updated_at` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_key` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'PT. Jaya Bakti','jayabakti@gmail.com','Pekalongan','$2b$10$1CfTM3lbCq/1AEFzkHqVVeSTl2h4pf1.hxnl0ySnkLnkOwvkOHKUG','customer','2024-04-02 18:29:45.738','2024-04-02 18:29:45.738'),(2,'CV. Merpati Tunggal','merpatitunggal@gmail.com','Pekalongan','$2b$10$Yepy5MO4YgBxoBKjDnWx4eCr8TkpM1ZyVth/MXNVsneP4HQLW2gvi','customer','2024-04-02 18:30:37.677','2024-04-02 18:30:37.677'),(3,'CV. Bangkit','bangkit@gmail.com','Pekalongan','$2b$10$6Zq8uZi0oijXIVB1xvZnoedAVy5K67mE/HTI40aHd4D3Cs2u0dmmm','customer','2024-04-02 18:30:57.431','2024-04-02 18:30:57.431'),(4,'PT. Petrofisika','petrofisika@gmail.com','Pekalongan','$2b$10$NQ1t5d4gk.FutuKcM1lQNu52gHTCtO2XkZgLJfp.dHb.HvYRn4d5C','customer','2024-04-02 18:31:17.557','2024-04-02 18:31:17.557'),(5,'Bpk. Prayitno','prayitno@gmail.com','Pekalongan','$2b$10$CXzZRH99pDjBxS/vE8GTuu6gATHGmk.6.vWQxvUchHGSY1He7UCbS','customer','2024-04-02 18:31:35.811','2024-04-02 18:31:35.811'),(6,'CV. Praktikno Lancar Jaya Nusantara','paktikunoljn@gmail.com','Pekalongan','$2b$10$wOpwe4qfLh7J40Tk86zJse9bgUfr4v737.imJAI7/WgZs42o/O2PC','customer','2024-04-02 18:32:13.706','2024-04-02 18:32:13.706'),(7,'PT. Barokah Tunggal Satu','barokahtunggalsatu@gmail.com','Pekalongan','$2b$10$qWtDae2XN9/rV2JDSPILAeoHSF4cDPhJ7QzrbYholYempbND4LOQO','customer','2024-04-02 18:32:50.571','2024-04-02 18:32:50.571'),(8,'bambang','bambang@gmail.com','Pekalongan','$2b$10$t6zHCj2JbCSXG4a/4/69jOxl19Myz0r3.B9.TVMTFE6OmA6R6bwii','customer','2024-04-02 18:33:09.362','2024-04-02 18:33:09.362'),(9,'admin','admin@gmail.com','Pekalongan','$2b$10$WSYYYhlEMdjDzJ4KhC619eS77bUZdtlsGXw4lymoNyiJep27uVjwi','superadmin','2024-04-02 18:33:20.231','2024-04-02 18:33:20.231');
+INSERT INTO `users` VALUES (1,'PT. Jaya Bakti','jayabakti@gmail.com','Pekalongan','$2b$10$1CfTM3lbCq/1AEFzkHqVVeSTl2h4pf1.hxnl0ySnkLnkOwvkOHKUG','customer','2024-04-02 18:29:45.738','2024-04-02 18:29:45.738'),(2,'CV. Merpati Tunggal','merpatitunggal@gmail.com','Pekalongan','$2b$10$Yepy5MO4YgBxoBKjDnWx4eCr8TkpM1ZyVth/MXNVsneP4HQLW2gvi','customer','2024-04-02 18:30:37.677','2024-04-02 18:30:37.677'),(3,'CV. Bangkit','bangkit@gmail.com','Pekalongan','$2b$10$6Zq8uZi0oijXIVB1xvZnoedAVy5K67mE/HTI40aHd4D3Cs2u0dmmm','customer','2024-04-02 18:30:57.431','2024-04-02 18:30:57.431'),(4,'PT. Petrofisika','petrofisika@gmail.com','Pekalongan','$2b$10$NQ1t5d4gk.FutuKcM1lQNu52gHTCtO2XkZgLJfp.dHb.HvYRn4d5C','customer','2024-04-02 18:31:17.557','2024-04-02 18:31:17.557'),(5,'Bpk. Prayitno','prayitno@gmail.com','Pekalongan','$2b$10$CXzZRH99pDjBxS/vE8GTuu6gATHGmk.6.vWQxvUchHGSY1He7UCbS','customer','2024-04-02 18:31:35.811','2024-04-02 18:31:35.811'),(6,'CV. Praktikno Lancar Jaya Nusantara','paktikunoljn@gmail.com','Pekalongan','$2b$10$wOpwe4qfLh7J40Tk86zJse9bgUfr4v737.imJAI7/WgZs42o/O2PC','customer','2024-04-02 18:32:13.706','2024-04-02 18:32:13.706'),(7,'PT. Barokah Tunggal Satu','barokahtunggalsatu@gmail.com','Pekalongan','$2b$10$qWtDae2XN9/rV2JDSPILAeoHSF4cDPhJ7QzrbYholYempbND4LOQO','customer','2024-04-02 18:32:50.571','2024-04-02 18:32:50.571'),(9,'123123admin','admin@gmail.com','Pekalongan','$2b$10$i.tGZFiTpKA.k1/FCqrac.YdJjq3.HWLKvJ0BLnXriK5OO/zQiFAe','superadmin','2024-04-02 18:33:20.231','2024-04-02 18:33:20.231');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-02 18:36:20
+-- Dump completed on 2024-04-03 21:12:25
